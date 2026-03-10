@@ -1,5 +1,5 @@
 本项目围绕气象数据展开，涵盖了大数据处理（Hadoop/Hive/Sqoop）、数据分析建模（Python时间序列）和数据可视化（Django/ECharts）三大核心技术栈。经过严格的部署和开发流程，本项目已成功搭建并实现全部功能。
- 
+ <img width="865" height="541" alt="image" src="https://github.com/user-attachments/assets/cadb894e-f6ae-4d75-8099-1d99e650b6c3" />
 1. 技术架构概览 (E-H-P Stack)
 模块	使用技术	任务目标	状态
 平台搭建	CentOS 7, VMware, Hadoop 2.9.2, Hive 2.1.0, MySQL 5.7	构建 1 Master + 2 Slave 集群，配置 SSH 免密，打通底层环境。	
@@ -8,7 +8,8 @@
 数据预测 (ML)	Python (Pandas/Statsmodels)	使用 Holt-Winters 指数平滑法，基于 2000-2022 年历史数据预测 2023 年全国各省平均气温，并更新到 MySQL。	
 数据导出 (ETL)	Sqoop	将 Hive/HDFS 中计算出的 6 张结果表安全、批量地导入到 MySQL 关系型数据库。
 数据展示 (Web)	Django, ECharts 5.x, JavaScript	创建 Web 平台，连接 MySQL，渲染中国地图、气温预测折线图、气压矩形树图等 5 大图表。	
- 
+ <img width="865" height="541" alt="image" src="https://github.com/user-attachments/assets/4be53dd2-73c4-4b3d-ac98-1ff612632635" />
+
 2. 关键难点突破
 在项目实施过程中，遇到了多个技术难点，均通过分析原理得到解决：
 1.	Hadoop 集群通讯故障：集群启动后 DataNode 无法加入，经诊断是 Linux 防火墙未彻底关闭所致，通过 systemctl disable firewalld 永久禁用解决。
@@ -27,3 +28,10 @@
 •	Django 架构：掌握了 Django 项目的创建、应用注册、settings.py 数据库连接配置以及路由（urls.py）和业务逻辑（views.py）的编写。
 •	前后端分离：实现了后端 Python 视图函数连接 MySQL、处理 Pandas 数据并将其序列化后，通过 mark_safe 传递给前端模板。
 •	ECharts 绘制：成功利用 ECharts 绘制了地图、折线图、矩形树图、词云等五种复杂图表，实现了数据的动态切换和可视化展示。
+
+Ⅲ. 项目结构与技术栈总结
+本项目成功串联了完整的软件技术栈：
+•	数据存储层： CentOS + VMware + HDFS + MySQL 5.7
+•	数据处理层： Java (JDK 1.8) + MapReduce + Hive 2.1 + Sqoop 1.4
+•	应用开发层： Python (3.11) + Django + Pandas + Statsmodels
+•	前端展示层： HTML5 + JavaScript + ECharts 5.x + Bootstrap
